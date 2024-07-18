@@ -6,7 +6,7 @@ namespace Alarm_Project.Services;
 
 public class EmailSender : IEmailSender
 {
-    public Task SendEmailAsync(string email, string subject, string message)
+    public Task SendEmailAsync(string email, string subject, string message, string filePath)
     {
         var mail = "test-sender13@outlook.com";
         var pw = "Test.netapi";
@@ -16,10 +16,27 @@ public class EmailSender : IEmailSender
             EnableSsl = true,
             Credentials = new NetworkCredential(mail, pw)
         };
-        return client.SendMailAsync(
-            new MailMessage(from: mail,
-                to: email,
-                subject: subject,
-                message));
+        var mailMessage = new MailMessage
+        {
+            From = new MailAddress(mail),
+            To = { email },
+            Subject = subject,
+            Body = message,
+            IsBodyHtml = false
+        };
+        mailMessage.To.Add(email);
+        if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+        {
+            var attachment = new Attachment(filePath);
+            mailMessage.Attachments.Add(attachment);
+        }
+
+        return client.SendMailAsync(mailMessage);
+        
+        // return client.SendMailAsync(
+        //     new MailMessage(from: mail,
+        //         to: email,
+        //         subject: subject,
+        //         body:message));
     }
 }

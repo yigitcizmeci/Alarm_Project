@@ -46,6 +46,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "BouncyCastle": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
+            "BouncyCastle.NetCore": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
             "Hangfire": {
               "target": "Package",
               "version": "[1.8.14, )"
@@ -109,6 +117,14 @@
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             }
           },
           "imports": [

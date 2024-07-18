@@ -90,12 +90,17 @@ public class PaymentRepository(
             };
             await alarmService.Alarm(alarmDto);
             
-            //Slack Message
+            //Receive Report
+            if (ıdPaymentDto.AlarmSettingsDto.ReceiveReport == true)
+            {
+                await alarmService.SendReport(alarmMessage);
+            }
+            //Email Message
             if (ıdPaymentDto.AlarmSettingsDto.ReceiveMail == true)
             {
                 await alarmService.SendEmailAsync(alarmMessage);
             }
-            //Email Message
+            //Slack Message
             if (ıdPaymentDto.AlarmSettingsDto.ReceiveSlack == true)
             {
                 await alarmService.SendSlackAsync(alarmMessage);
@@ -177,7 +182,7 @@ public class PaymentRepository(
                 // };
 
                 await repositoryContext.Alarm.AddAsync(makePayment.Alarm);
-                await emailSender.SendEmailAsync(userEmail, "Alarm", "Currency Exception");
+                // await emailSender.SendEmailAsync(userEmail, "Alarm", "Currency Exception");
                 await repositoryContext.SaveChangesAsync();
 
                 throw new Exception($"Payment failed due to insufficient currency for user {userTokenId}");

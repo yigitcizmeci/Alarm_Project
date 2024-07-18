@@ -3,6 +3,7 @@ using Alarm_Project.Models;
 using Alarm_Project.Repositories;
 using Alarm_Project.Services.Contracts;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Alarm_Project.Services;
 
@@ -17,7 +18,7 @@ public class AlarmService(IMapper mapper, AlarmRepository alarmRepository, Alarm
         return final;
     }
 
-    public async Task<byte[]> SendReport(string alarmMessage)
+    public async Task<string> SendReport(string alarmMessage)
     {
         return await alarmRepository.SendReport(alarmMessage);
     }

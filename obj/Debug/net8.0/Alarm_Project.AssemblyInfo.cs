@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alarm_Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23cdd18969f06438830cfbd82996cdbbe17c1f7c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24af084eee6c69f211130f7a96971b9dfb0f4e6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alarm_Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alarm_Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
